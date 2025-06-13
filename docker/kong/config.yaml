@@ -8,6 +8,8 @@ services:
     host: host.docker.internal
     port: 3333
     path: /
+    connect_timeout: 10000
+    retries: 3
     routes:
       - name: api-orders
         protocols:
@@ -17,7 +19,7 @@ services:
           - /orders
 
   - name: invoices
-    url: http://HOST.DOCKER.INTERNAL:3334
+    url: http://host.docker.internal:3334
     protocol: http
     host: host.docker.internal
     port: 3334
